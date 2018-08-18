@@ -1,0 +1,62 @@
+$color-grey-dark: #333;
+$color-grey-light: #d0d0d0;
+@mixin respond($breakpoint) {
+    @if $breakpoint==phone-land {
+        @media only screen and (min-width: 37.5em) {
+            @content
+        }
+        ;
+    }
+    @if $breakpoint==tab {
+        @media only screen and (min-width: 50em) {
+            @content
+        }
+        ;
+    }
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-size: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 50%;
+    @include respond(phone-land) {
+        font-size: 62.5%;
+    }
+}
+
+body {
+    color: $color-grey-dark;
+    line-height: 1.6;
+    font-family: 'Open Sans';
+}
+
+.main {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.header {
+    background: #ddd;
+    display: flex;
+    height: 5rem;
+    align-items: flex-end;
+    justify-content: center;
+    font-size: 1.5rem;
+    padding: .5rem 1rem;
+    &--between {
+        justify-content: space-between;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}

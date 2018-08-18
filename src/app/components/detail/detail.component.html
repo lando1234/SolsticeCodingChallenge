@@ -1,0 +1,54 @@
+<header class="header header--between">
+
+  <button [routerLink]="['/list']" class="go-back">
+    <span class="go-back__arrow">
+      <</span> Contacts</button>
+
+  <img srcset="assets/StarT/star.png 1x, assets/StarT/star@2x.png 2x, assets/StarT/star@3x.png 3x" alt="Star" src="assets/StarT/star.png"
+    class="fav" (click)="contact.isFavorite = false" *ngIf="contact.isFavorite">
+  <img srcset="assets/StarF/star.png 1x, assets/StarF/star@2x.png 2x, assets/StarF/star@3x.png 3x" alt="Star" src="assets/StarF/star.png"
+    class="fav" (click)="contact.isFavorite = true" *ngIf="!contact.isFavorite">
+</header>
+<div class="container">
+  <div class="detail">
+
+    <div class="detail__item detail__contact">
+      <figure class="detail__img">
+        <img [src]="contact.largeImageURL" [alt]="contact.name" onError="this.src='assets/UserS/user.png'; this.srcset='assets/UserS/user.png 1x,assets/UserS/user@2x.png 2x,assets/UserS/user@3x.png 3x'">
+      </figure>
+      <h1 class="detail__name">{{contact.name}}</h1>
+      <h2 class="detail__company">{{ contact.companyName }}</h2>
+    </div>
+    <div class="detail__item detail__phone" *ngIf="contact.phone.home">
+      <h3 class="detail__title detail__phone--1">Phone:</h3>
+      <div class="detail__text detail__phone--2">{{contact.phone.home | phone }}</div>
+      <div class="detail__type detail__phone--3">Home</div>
+    </div>
+    <div class="detail__item detail__phone" *ngIf="contact.phone.mobile">
+      <h3 class="detail__title detail__phone--1">Phone:</h3>
+      <div class="detail__text detail__phone--2">{{contact.phone.mobile | phone }}</div>
+      <div class="detail__type detail__phone--3">Mobile</div>
+    </div>
+    <div class="detail__item detail__phone" *ngIf="contact.phone.work">
+      <h3 class="detail__title detail__phone--1">Phone:</h3>
+      <div class="detail__text detail__phone--2">{{contact.phone.work | phone }}</div>
+      <div class="detail__type detail__phone--3">Work</div>
+    </div>
+    <div class="detail__item detail__address">
+      <h3 class="detail__title">Address:</h3>
+      <div class="detail__text">{{ contact.address.street }}</div>
+      <div class="detail__text detail__text--no-padding">{{ getState() }}</div>
+    </div>
+
+    <div class="detail__item detail__birthdate">
+      <h3 class="detail__title">Birthdate:</h3>
+      <div class="detail__text">{{ contact.birthdate | date}}</div>
+    </div>
+
+    <div class="detail__item detail__mail">
+      <h3 class="detail__title">Email:</h3>
+      <div class="detail__text">{{ contact.emailAddress }}</div>
+    </div>
+
+  </div>
+</div>

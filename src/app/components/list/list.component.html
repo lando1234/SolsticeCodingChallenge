@@ -1,0 +1,53 @@
+<header class="header">
+  Contacts
+</header>
+<div class="container">
+  <div class="list__title">
+    Favorite Contacts
+  </div>
+  <div class="list">
+    <a class="list__link" [routerLink]="['/detail',contact.id]"  *ngFor="let contact of fav"> 
+      <div class="list__item" >
+        <figure class="list__image">
+          <img [src]="contact.smallImageURL" 
+               alt="{{ contact.name }}"
+               onError="this.src='assets/UserS/user.png'; this.srcset='assets/UserS/user.png 1x,assets/UserS/user@2x.png 2x,assets/UserS/user@3x.png 3x'">
+        </figure>
+        <figure class="list__star">
+          <img srcset="assets/StarT/star.png 1x, assets/StarT/star@2x.png 2x, assets/StarT/star@3x.png 3x"
+              alt="Star"
+              src="assets/StarT/star.png">
+        </figure>
+        <div class="list__name">
+          {{ contact.name }}
+        </div>
+        <div class="list__company">
+          {{ contact.companyName }}
+        </div>
+
+      </div>
+    </a>  
+  </div>
+  <div class="list__title">
+    Other Contacts
+  </div>
+  <div class="list">
+    <a class="list__link" [routerLink]="['/detail',contact.id]"  *ngFor="let contact of other">   
+      <div class="list__item">
+      <figure class="list__image">
+        <img [src]="contact.smallImageURL" 
+                      alt="{{ contact.name }}"
+                      onError="this.src='assets/UserS/user.png'; this.srcset='assets/UserS/user.png 1x,assets/UserS/user@2x.png 2x,assets/UserS/user@3x.png 3x'">
+      </figure>
+      <div class="list__name">
+        {{ contact.name }}
+      </div>
+      <div class="list__company">
+        {{ contact.companyName }}
+      </div>
+      
+
+    </div>
+    </a>
+  </div>
+</div>
