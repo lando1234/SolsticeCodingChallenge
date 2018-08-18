@@ -13,8 +13,10 @@
 3) Run npm install.
 
   ## DEPLOY IN SERVER (AFTER WALKTHROUGH)
-1) Run ng build --prod
-2) Copy files in dist folder to the desired server.
+1) Open command line and navigate to cloned repository.
+2) Run ng build --prod
+3) Copy files in dist folder to the desired server.
 
   ## DEPLOY LOCALLY (AFTER WALKTHROUGH)
-1) RUN ng serve -o.
+1) Open command line and navigate to cloned repository.
+2) RUN ng serve -o.
